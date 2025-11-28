@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuDesigns - Crafting Joy, One Design At Time</title>
+    <!-- Favicon: Pink Crown SVG Data URL -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23FF69B4' d='M21 8.5L18 7l-3 1.5L12 7l-3 1.5L6 7L3 8.5V20h18V8.5zM19 18H5v-7l1-1.5 3 1.5 3-1.5 3 1.5 3-1.5 1 1.5V18z'%3E%3C/path%3E%3C/svg%3E">
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Tailwind Configuration */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-pink': '#FFC0CB', /* Light Pink/Dusty Pink */
+                        'secondary-pink': '#FF69B4', /* Hot Pink/Deep Pink for accents */
+                        'text-dark': '#333333',
+                        'bg-light': '#FFF0F5', /* Very light pink/Creamy background */
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+
+        /* Custom Styles for the 'Princess' Vibe */
+        .pink-ribbon-bg {
+            /* Simulating the vertical pink stripes/ribbons */
+            background-image: repeating-linear-gradient(
+                45deg,
+                #FFC0CB40, /* Light pink with transparency */
+                #FFC0CB40 20px,
+                #FFF0F5 20px,
+                #FFF0F5 40px
+            );
+        }
+        .section-header::after, .section-header::before {
+            content: '';
+            display: inline-block;
+            width: 30px;
+            height: 1px;
+            background-color: #FF69B4;
+            margin: 0 10px;
+            vertical-align: middle;
+        }
+        .box-shadow-pink {
+            box-shadow: 0 4px 6px -1px rgba(255, 105, 180, 0.3), 0 2px 4px -2px rgba(255, 105, 180, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+        .box-shadow-pink:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(255, 105, 180, 0.5), 0 4px 6px -4px rgba(255, 105, 180, 0.5);
+        }
+
+        /* Animation for the floating elements (optional but adds magic) */
+        @keyframes float {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, 5px); }
+            100% { transform: translate(0, -0px); }
+        }
+        .floating-element {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-bg-light text-text-dark font-sans antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-4xl font-display font-bold text-secondary-pink">
+                        <i class="fas fa-crown text-primary-pink"></i> Lu<span class="text-primary-pink">Designs</span>
+                    </a>
+                </div>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-lg font-display text-text-dark hover:text-secondary-pink transition duration-150">Home</a>
+                    <a href="#services" class="text-lg font-display text-text-dark hover:text-secondary-pink transition duration-150">Services</a>
+                    <a href="#samples" class="text-lg font-display text-text-dark hover:text-secondary-pink transition duration-150">Sample Projects</a>
+                    <a href="#pricing" class="text-lg font-display text-text-dark hover:text-secondary-pink transition duration-150">Pricing</a>
+                    <a href="#contact" class="text-lg font-display text-text-dark hover:text-secondary-pink transition duration-150">Contact</a>
+                </nav>
+                <!-- Mobile Menu Button (No Admin Toggle) -->
+                <div class="flex items-center space-x-4">
+                    <!-- Mobile Menu Button (Hamburger) -->
+                    <button id="menu-button" class="md:hidden text-secondary-pink focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white">
+            <a href="#home" class="block py-2 px-4 text-sm text-text-dark hover:bg-primary-pink/30">Home</a>
+            <a href="#services" class="block py-2 px-4 text-sm text-text-dark hover:bg-primary-pink/30">Services</a>
+            <a href="#samples" class="block py-2 px-4 text-sm text-text-dark hover:bg-primary-pink/30">Sample Projects</a>
+            <a href="#pricing" class="block py-2 px-4 text-sm text-text-dark hover:bg-primary-pink/30">Pricing</a>
+            <a href="#contact" class="block py-2 px-4 text-sm text-text-dark hover:bg-primary-pink/30">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pink-ribbon-bg relative pt-20 pb-28 sm:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
+            <!-- Left Content -->
+            <div class="order-2 md:order-1 text-center md:text-left">
+                <h1 class="text-6xl sm:text-7xl font-display font-bold text-secondary-pink mb-4 leading-tight">
+                    Clean websites for small businesses.
+                </h1>
+                <p class="text-xl text-text-dark mb-8">
+				I’m a young web designer who helps small businesses build clean, modern websites that look professional and are easy to use. I focus on creating designs that match your brand, work smoothly on any device, and make your business stand out online. My goal is to give you a website that’s simple, beautiful, and ready to help your business grow.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                    <!-- "See Services" button text is black (text-text-dark) -->
+                    <a href="#services" class="px-8 py-3 bg-secondary-pink text-text-dark font-bold rounded-full shadow-lg hover:bg-secondary-pink/80 transition duration-300 transform hover:scale-105">
+                        See Services
+                    </a>
+                    <a href="#samples" class="px-8 py-3 bg-primary-pink text-text-dark font-bold rounded-full shadow-lg hover:bg-primary-pink/80 transition duration-300 transform hover:scale-105">
+                        Sample Projects
+                    </a>
+                </div>
+                <div class="mt-6 flex justify-center md:justify-start space-x-6 text-text-dark">
+                    <span class="flex items-center text-lg"><i class="fas fa-mobile-alt mr-2 text-secondary-pink"></i> Mobile friendly</span>
+                    <span class="flex items-center text-lg"><i class="fas fa-shopping-cart mr-2 text-secondary-pink"></i> Booking or shop integration</span>
+                </div>
+            </div>
+
+            <!-- Right Image/Illustration -->
+            <div class="order-1 md:order-2 relative flex justify-center">
+                <!-- Large Decorative Image -->
+                <div class="relative w-full max-w-md">
+                    <img src="https://placehold.co/600x600/FFC0CB/FF69B4?text=LuDesigns+Branding" 
+                         alt="Decorative illustration of pink watercolor floral wreath" 
+                         class="w-full h-auto rounded-xl shadow-2xl floating-element">
+                    <!-- Text Overlay -->
+                    <div class="absolute inset-0 flex flex-col justify-center items-center p-8">
+                        <span class="text-5xl font-display font-bold text-white text-center">LuDesigns</span>
+                        <span class="text-lg text-white text-center mt-2">Crafting Joy, One Design At Time.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-5xl font-display font-bold text-text-dark mb-12 section-header">
+                Pick a package that fits your vibe
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Service Card 1: Business Booster -->
+                <div class="p-8 border-4 border-primary-pink/50 rounded-3xl bg-bg-light box-shadow-pink">
+                    <i class="fas fa-rocket text-5xl text-secondary-pink mb-4 floating-element"></i>
+                    <h3 class="text-3xl font-display font-bold text-text-dark mb-3">Business Booster</h3>
+                    <p class="text-lg mb-4 text-text-dark/80">
+                        About, Services, Contact, Gallery, booking OR product catalog, testimonials, Mobile-friendly + contact form.
+                    </p>
+                    <div class="text-4xl font-display font-bold text-secondary-pink mb-4">R500</div>
+                    <a href="#contact" class="inline-block px-6 py-2 bg-primary-pink text-text-dark font-semibold rounded-full hover:bg-primary-pink/80 transition duration-300">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Service Card 2: Online Store Boss -->
+                <div class="p-8 border-4 border-secondary-pink/50 rounded-3xl bg-bg-light box-shadow-pink">
+                    <i class="fas fa-store text-5xl text-secondary-pink mb-4 floating-element" style="animation-delay: 0.5s;"></i>
+                    <h3 class="text-3xl font-display font-bold text-text-dark mb-3">Online Store Boss</h3>
+                    <p class="text-lg mb-4 text-text-dark/80">
+                        Full e-commerce setup: product pages, cart, payments & shipping. Ready to take over the world.
+                    </p>
+                    <div class="text-4xl font-display font-bold text-secondary-pink mb-4">R1 000</div>
+                    <a href="#contact" class="inline-block px-6 py-2 bg-secondary-pink text-white font-semibold rounded-full hover:bg-secondary-pink/80 transition duration-300">
+                        Launch Your Store
+                    </a>
+                </div>
+            </div>
+             <p class="mt-8 text-xl font-display text-text-dark">
+                — Or ask for a custom quote if you need something unique.
+            </p>
+        </div>
+    </section>
+
+    <!-- Pricing Process Section -->
+    <section id="pricing" class="py-20 bg-bg-light pink-ribbon-bg">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-5xl font-display font-bold text-text-dark mb-12 section-header">
+                Pricing & Clear Process
+            </h2>
+            <p class="text-lg text-text-dark mb-8">Clear two-stage flow so you know exactly what you're paying for.</p>
+
+            <div class="space-y-8">
+                <!-- Stage 1: Design Phase -->
+                <div class="bg-white p-6 rounded-2xl text-left border-l-8 border-primary-pink box-shadow-pink">
+                    <h3 class="text-2xl font-display font-bold text-secondary-pink mb-2">1. Design Phase (Deposit) — R250</h3>
+                    <p class="text-text-dark">
+                        I design your full site and host it on a **temporary domain** so you can review. This includes layout, text, images, and mobile checks.
+                    </p>
+                </div>
+                
+                <!-- Separator Arrow -->
+                <div class="text-secondary-pink text-4xl">
+                    <i class="fas fa-arrow-down floating-element"></i>
+                </div>
+
+                <!-- Stage 2: Publishing & Domain -->
+                <div class="bg-white p-6 rounded-2xl text-left border-l-8 border-secondary-pink box-shadow-pink">
+                    <h3 class="text-2xl font-display font-bold text-secondary-pink mb-2">2. Publishing & Domain — R250</h3>
+                    <p class="text-text-dark">
+                        When you're happy, we connect your custom domain (e.g., *yourbusiness.co.za*) and make the site live under a professional URL.
+                    </p>
+                    <p class="text-xl font-bold mt-3 text-text-dark">Total Initial Cost: R500</p>
+                </div>
+            </div>
+
+            <p class="mt-10 text-lg font-display text-text-dark border-t border-primary-pink pt-4">
+                *Extras: Monthly maintenance packages are available. Ask for a custom quote.*
+            </p>
+        </div>
+    </section>
+
+    <!-- Sample Projects Section (Condensed for design) -->
+    <section id="samples" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-5xl font-display font-bold text-text-dark mb-12 section-header">
+                Sample Projects
+            </h2>
+            <p class="text-lg text-text-dark mb-10">Examples of what can be included in your site for various business types.</p>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Project 1: Beauty Salon -->
+                <div class="p-4 bg-bg-light rounded-xl box-shadow-pink">
+                    <img src="https://placehold.co/400x400/FFC0CB/FF69B4?text=Beauty+Salon" alt="Beauty Salon Project Sample" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-display font-bold text-secondary-pink">Beauty Salon — Glow Studio</h3>
+                    <p class="text-sm text-text-dark mt-2">Features: Online bookings, Style gallery, Price list, Reviews, Instagram feed.</p>
+                    <p class="text-xs italic mt-2 text-primary-pink font-semibold">Vibe: Girly, clean, boujee.</p>
+                </div>
+
+                <!-- Project 2: Boutique -->
+                <div class="p-4 bg-bg-light rounded-xl box-shadow-pink">
+                    <img src="https://placehold.co/400x400/FFC0CB/FF69B4?text=Boutique" alt="Boutique Project Sample" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-display font-bold text-secondary-pink">Boutique — Luxe Streetwear</h3>
+                    <p class="text-sm text-text-dark mt-2">Features: Product catalog, Add-to-cart, Checkout, Shipping options, Lookbook page.</p>
+                    <p class="text-xs italic mt-2 text-primary-pink font-semibold">Vibe: Modern, fashion-forward.</p>
+                </div>
+
+                <!-- Project 3: Photographer -->
+                <div class="p-4 bg-bg-light rounded-xl box-shadow-pink">
+                    <img src="https://placehold.co/400x400/FFC0CB/FF69B4?text=Photographer" alt="Photographer Project Sample" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-display font-bold text-secondary-pink">Photographer — Lens & Light</h3>
+                    <p class="text-sm text-text-dark mt-2">Features: Full-screen gallery, About the creator, Client reviews.</p>
+                    <p class="text-xs italic mt-2 text-primary-pink font-semibold">Vibe: Classy, premium, serious.</p>
+                </div>
+
+                <!-- Project 4: Tutoring -->
+                <div class="p-4 bg-bg-light rounded-xl box-shadow-pink">
+                    <img src="https://placehold.co/400x400/FFC0CB/FF69B4?text=Tutoring" alt="Tutoring Project Sample" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-display font-bold text-secondary-pink">Tutoring — SmartSteps</h3>
+                    <p class="text-sm text-text-dark mt-2">Features: Subject list, Booking calendar, Notes/resources, Student testimonials.</p>
+                    <p class="text-xs italic mt-2 text-primary-pink font-semibold">Vibe: Simple, neat, trustworthy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-bg-light pink-ribbon-bg">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl font-display font-bold text-text-dark mb-12 section-header text-center">
+                Ready to glow up your business? Hit me up.
+            </h2>
+            <!-- Centered Contact Block -->
+            <div class="bg-white p-8 md:p-12 rounded-2xl shadow-xl border-4 border-primary-pink/50">
+                
+                <!-- Quick Contact Info -->
+                <div class="bg-primary-pink/20 p-8 rounded-xl max-w-lg mx-auto">
+                    <h3 class="text-3xl font-display font-bold text-secondary-pink mb-6 text-center">Quick Contact</h3>
+                    <ul class="space-y-6 text-xl text-text-dark">
+                        <!-- Email -->
+                        <li class="flex flex-col items-center">
+                            <div class="flex items-center mb-1">
+                                <i class="fas fa-envelope mr-3 text-secondary-pink text-2xl"></i> 
+                                <span class="font-semibold">Email:</span>
+                            </div>
+                            <span class="text-lg">dumalumkile@gmail.com</span>
+                        </li>
+                        <!-- WhatsApp -->
+                        <li class="flex flex-col items-center">
+                            <div class="flex items-center mb-1">
+                                <i class="fab fa-whatsapp mr-3 text-secondary-pink text-2xl"></i> 
+                                <span class="font-semibold">WhatsApp:</span>
+                            </div>
+                            <span class="text-lg">+27 62 908 0945</span>
+                        </li>
+                        <!-- Availability -->
+                        <li class="flex flex-col items-center">
+                            <div class="flex items-center mb-1">
+                                <i class="fas fa-clock mr-3 text-secondary-pink text-2xl"></i> 
+                                <span class="font-semibold">Availability:</span>
+                            </div>
+                            <span class="text-lg">24/7</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-pink text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="text-3xl font-display font-bold mb-2">
+                <i class="fas fa-crown text-white/70"></i> LuDesigns
+            </div>
+            <p class="text-sm">Crafting Joy, One Design At Time. | Websites for Small Businesses.</p>
+            <div class="mt-4 text-sm">
+                &copy; <span id="current-year"></span> LuDesigns. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- UI Logic -->
+    <script type="module">
+        
+        // Set current year in the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle Logic
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
